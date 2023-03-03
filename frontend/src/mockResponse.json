@@ -1,0 +1,10 @@
+{
+    "entertainment": [
+      {"id": 1, "label": "The rise of streaming platforms: Netflix, Hulu, Amazon Prime, Disney+, etc."},
+      {"id": 2, "label": "The impact of social media on the entertainment industry"},
+      {"id": 3, "label": "The history and evolution of cinema and film-making"},
+      {"id": 4, "label": "Music genres and their cultural significance"},
+      {"id": 5, "label": "The influence of Hollywood on global entertainment"}
+    ]
+  }
+  
