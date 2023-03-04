@@ -1,14 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { RelatedTopic, Response } from 'interfaces/general';
 
+const shallowColors = ['#F5B7B1', '#D7BDE2', '#D4E6F1', '#A3E4D7', '#F9E79F', '#FDEBD0'];
+
 const getRandomColor = () => {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 3; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+    const randomIndex = Math.floor(Math.random() * shallowColors.length);
+    return shallowColors[randomIndex];
 };
 // eslint-disable-next-line import/prefer-default-export
 export const generateGraphContent = (responses: Response) => {
@@ -17,7 +14,9 @@ export const generateGraphContent = (responses: Response) => {
 
     mainTopic.forEach((topic) => {
         const respectiveColor = getRandomColor();
-        const correspondingRelatedTopics = responses[topic].map((item) => ({ ...item, color: respectiveColor, opacity: '1%' }));
+        console.log({ respectiveColor });
+        const correspondingRelatedTopics = responses[topic].map((item) => ({ ...item, color: respectiveColor }));
+        console.log({ correspondingRelatedTopics });
         const correspondingTopicId = correspondingRelatedTopics.find((item) => item.isMainTopic)?.id;
         const modifiedEdges: { from: number; to: number }[] = [];
 
@@ -40,8 +39,6 @@ export const generateGraphContent = (responses: Response) => {
         combinedGraph.nodes.push(...graph.nodes);
         combinedGraph.edges.push(...graph.edges);
     });
-
-    console.log({ combinedGraph });
 
     return combinedGraph;
 };

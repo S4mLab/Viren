@@ -10,17 +10,13 @@ interface CanvasProps {
 const Canvas: FC<CanvasProps> = ({ responses }) => {
     const options = {
         height: '100%',
-        width: '60%',
-        layout: {
-            hierarchical: false,
-        },
         nodes: {
             shape: 'box',
             widthConstraint: 100,
         },
         physics: {
             barnesHut: {
-                avoidOverlap: 0.3,
+                avoidOverlap: 0.2,
             },
         },
     };
@@ -28,7 +24,7 @@ const Canvas: FC<CanvasProps> = ({ responses }) => {
 
     return (
         <Grid item xs={8}>
-            <Graph graph={graphs} options={options} />;
+            <Graph graph={graphs} options={options} />
         </Grid>
     );
 };
