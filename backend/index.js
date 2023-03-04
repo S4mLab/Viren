@@ -3,8 +3,8 @@ const server = require('./server');
 const config = require('./utils/config');
 const logger = require('./utils/logger');
 
-const server = http.createServer(server);
+const virenServer = http.createServer(server);
 
-server.listen(config.PORT, () => {
+virenServer.listen(config.PORT, () => {
   logger.info(`Server running on port ${config.PORT}`);
 });
