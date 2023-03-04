@@ -7,7 +7,7 @@ const mindmapRouter = require('./controllers/mindmap');
 const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 
-
+server.use(express.static('../frontend/'));
 server.use(cors());
 server.use(express.json());
 server.use(middleware.requestLogger);

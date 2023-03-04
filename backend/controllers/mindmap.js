@@ -1,5 +1,9 @@
 const mindmapRouter = require('express').Router();
+const Theme = require('../models/theme');
+const Association = require('../models/association');
+const { transcribeAudio } = require('../utils/audioTranscriber');
 const { readMap, createTheme, createAssociation } = require('../utils/neo4jStorage');
+const { getMeetingSummaryTitle, getMeetingBulletPoints } = require("../utils/chatGPTHelper");
 
 mindmapRouter.get('/:id', async (request, response, next) => {
   const { id } = request.params;
@@ -7,14 +11,15 @@ mindmapRouter.get('/:id', async (request, response, next) => {
 });
 
 mindmapRouter.post('/', async (request, response, next) => {
-  const out = {};
-  if (await tryBufferFileFromRequest(request, response, out)) {
-    const { audioName } = out;
-    const processedFilePath = await processAudio(req, audioName);
-    response.download(processedFilePath.trim(), () => {
-      clearTempBuffer(`./server/temp/files/${audioName}.wav`);
-      clearTempBuffer(processedFilePath.trim());
-    });
+  const { meetingID, fileBuffer } = request;
+
+  const transcribedMeeting = transcribeAudio(fileBuffer);
+  const heading = getMeetingSummaryTitle(transcribedMeeting);
+
+  await createTheme(Theme(meetingID, heading, 1));
+  const rawChatGPTResult = await getMeetingBulletPoints(transcribedMeeting);
+  for (var theme in rawChatGPTResult.split(/\r?\n/)) {
+    await createTheme();
   }
 });
 

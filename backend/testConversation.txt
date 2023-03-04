@@ -1,0 +1,17 @@
+Person 1: Have you heard about the impact of low-orbit satellite constellations on astronomy?
+
+Person 2: No, I haven't. What do you mean?
+
+Person 1: Well, companies like SpaceX have been launching a lot of satellites into low orbit, like their Starlink satellites, which is causing them to dominate the space environment.
+
+Person 2: I see. And how does this affect astronomy?
+
+Person 1: Astronomers have been warning that these bright satellites could leave streaks on telescope images as they pass by, even on the Hubble Space Telescope, which orbits more than 500 kilometers above the Earth's surface.
+
+Person 2: Wow, that could really mess up their observations. Has there been an increase in satellite numbers?
+
+Person 1: Yes, there are already thousands more Starlink satellites now than there were in 2021, and it's predicted that by the 2030s, the probability of a satellite crossing Hubble's field of view any time it takes an image will be between 20 and 50 percent.
+
+Person 2: That's a big increase. What will be the future impact on science?
+
+Person 1: The percentage of Hubble images affected by light from low-orbit satellites has already increased by about 50 percent from 2002 to 2021, and while the number of images partially blocked by satellites is still small, the team studying this predicts that the number of satellites and space debris will only increase in the future. It could have a significant impact on astronomy in the long run.

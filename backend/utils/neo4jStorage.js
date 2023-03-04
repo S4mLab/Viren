@@ -3,19 +3,27 @@ const config = require('./config');
 const logger = require('./logger');
 
 const structureGraphResponse = (result) => {
+  const returndata = [];
   result.records.forEach(record => {
+    logger.info(record.get('meetingID'));
     // TODO: structure response data matching expected shape
   })
+
+  return returndata;
 }
 
-const neo4jQuery = async (query, data) => {
+const neo4jQuery = async (query) => {
   logger.info('connecting to', config.NEO4J_URI);
   const driver = neo4j.driver(config.NEO4J_URI, neo4j.auth.basic(config.NEO4J_USERNAME, config.NEO4J_PASSWORD));
   try {
     const session = driver.session(config.NEO4J_URI)
     logger.info('connected to Neo4J');
-    const result = await session.executeWrite(tx => tx.run(query, data));
-    return structureGraphResponse(result);
+    try {
+      const result = await session.executeWrite(tx => tx.run(query));
+      return structureGraphResponse(result);
+    } catch (err) {
+      logger.info(err);
+    }
   } catch (err) {
     logger.errorInfo('error connecting to Neo4J:', err.message);
   } finally {
@@ -34,7 +42,8 @@ const createAssociation = async (theme1, theme2, newAssoc) => {
 };
 
 const readMap = async (meetingID) => {
-  await neo4jQuery(`MATCH (${meetingID}:Theme)-[*]-(connected) RETURN connected`);
+  const result = await neo4jQuery(`MATCH (:Theme {meetingID: ${meetingID}}) RETURN ${meetingID} AS meetingID`);
+  return result;
 };
 
 module.exports = {
