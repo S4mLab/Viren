@@ -15,12 +15,16 @@ mindmapRouter.post('/', async (request, response, next) => {
 
   const transcribedMeeting = transcribeAudio(fileBuffer);
   const heading = getMeetingSummaryTitle(transcribedMeeting);
-
-  await createTheme(Theme(meetingID, heading, 1));
+  const root = Theme(meetingID, heading, 1);
+  await createTheme(root);
   const rawChatGPTResult = await getMeetingBulletPoints(transcribedMeeting);
   for (var theme in rawChatGPTResult.split(/\r?\n/)) {
-    await createTheme();
+    const newChildTheme = Theme(meetingID = null, theme, 2);
+    await createTheme(newChildTheme);
+    await createAssociation(Association(root, newChildTheme));
   }
+
+  response.json(200);
 });
 
 module.exports = mindmapRouter;

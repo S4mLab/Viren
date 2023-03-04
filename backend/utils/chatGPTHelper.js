@@ -1,13 +1,17 @@
-const { ChatGPTAPI } = require('chatgpt');
+const { Configuration, OpenAIApi } = require("openai");
 const logger = require('./logger');
 
 const queryChatGPT = async (query, data) => {
-  const api = new ChatGPTAPI({
+  const openai = new OpenAIApi({
     apiKey: process.env.OPENAI_API_KEY
   });
   try {
-    const res = await api.sendMessage(`${query} ${data}`);
-    return res;
+    const completion = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: `${query} ${data}`,
+    });
+    console.log(completion.data.choices[0].text);
+    return completion.data.choices[0].text;
   } catch (e) {
     logger.errorInfo(e);
   }
