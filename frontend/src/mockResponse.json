@@ -1,10 +1,18 @@
 {
-    "entertainment": [
-      {"id": 1, "label": "The rise of streaming platforms: Netflix, Hulu, Amazon Prime, Disney+, etc."},
-      {"id": 2, "label": "The impact of social media on the entertainment industry"},
-      {"id": 3, "label": "The history and evolution of cinema and film-making"},
-      {"id": 4, "label": "Music genres and their cultural significance"},
-      {"id": 5, "label": "The influence of Hollywood on global entertainment"}
-    ]
-  }
-  
+  "entertainment": [
+    {"id": 0, "label": "Entertainment", "isMainTopic": true},
+    {"id": 1, "label": "The rise of streaming platforms: Netflix, Hulu, Amazon Prime, Disney+, etc."},
+    {"id": 2, "label": "The impact of social media on the entertainment industry"},
+    {"id": 3, "label": "The history and evolution of cinema and film-making"},
+    {"id": 4, "label": "Music genres and their cultural significance"},
+    {"id": 5, "label": "The influence of Hollywood on global entertainment"}
+  ],
+  "sports": [
+    {"id": 6, "label": "Sports", "isMainTopic": true},
+    {"id": 7, "label": "The impact of sports on culture and society"},
+    {"id": 8, "label": "The role of technology in modern sports"},
+    {"id": 9, "label": "The business of sports: Sponsorship, advertising, and revenue"},
+    {"id": 10, "label": "The future of sports: Emerging trends and innovations"},
+    {"id": 11, "label": "Sports psychology: The mental aspect of athletic performance"}
+  ]
+}

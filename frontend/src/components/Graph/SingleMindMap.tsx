@@ -3,23 +3,22 @@ import React, { FC } from 'react';
 import Graph from 'react-graph-vis';
 
 const SingleMindMap: FC<TopicProps> = ({ mainTheme, relatedTopics }) => {
-    relatedTopics.filter((item) => item.id !== 0).push({ id: 0, label: mainTheme });
-    console.log({ relatedTopics });
-    const modifiedEdges: { from: number; to: number }[] = [];
-    relatedTopics.forEach((topic) => {
-        modifiedEdges.push({ from: topic.id, to: 0 });
-    });
+    const removedThemeArr = relatedTopics.filter((item) => item.id !== 0);
+    removedThemeArr.push({ id: 0, label: mainTheme });
     const options = {
-        edges: {
-            color: 'red',
+        height: '600px',
+        layout: {
+            hierarchical: false,
         },
-        height: '400px',
+        nodes: {
+            shape: 'box',
+            widthConstraint: 100,
+        },
     };
 
-    console.log({ modifiedEdges });
     const graph = {
-        nodes: relatedTopics,
-        edges: modifiedEdges,
+        nodes: removedThemeArr,
+        // edges: modifiedEdges,
     };
     return <Graph graph={graph} options={options} />;
 };

@@ -1,18 +1,28 @@
 import { Grid } from '@mui/material';
 import React, { FC } from 'react';
 import { Response } from 'interfaces/general';
-import SingleMindMap from './SingleMindMap';
+import { generateGraphContent } from 'util/graph';
+import Graph from 'react-graph-vis';
 
 interface CanvasProps {
     responses: Response;
 }
 const Canvas: FC<CanvasProps> = ({ responses }) => {
-    const mainTopic = Object.keys(responses);
+    const options = {
+        height: '100%',
+        layout: {
+            hierarchical: false,
+        },
+        nodes: {
+            shape: 'box',
+            widthConstraint: 100,
+        },
+    };
+    const graphs = generateGraphContent(responses);
+
     return (
         <Grid item xs={8}>
-            {mainTopic.map((main) => (
-                <SingleMindMap key={main} mainTheme={main} relatedTopics={responses[main]} />
-            ))}
+            <Graph graph={graphs} options={options} />;
         </Grid>
     );
 };
