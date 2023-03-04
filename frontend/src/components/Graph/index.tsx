@@ -10,12 +10,18 @@ interface CanvasProps {
 const Canvas: FC<CanvasProps> = ({ responses }) => {
     const options = {
         height: '100%',
+        width: '60%',
         layout: {
             hierarchical: false,
         },
         nodes: {
             shape: 'box',
             widthConstraint: 100,
+        },
+        physics: {
+            barnesHut: {
+                avoidOverlap: 0.3,
+            },
         },
     };
     const graphs = generateGraphContent(responses);

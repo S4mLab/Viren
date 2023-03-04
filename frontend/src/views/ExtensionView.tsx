@@ -1,4 +1,3 @@
-import React from 'react';
 import { Grid } from '@mui/material';
 import Dialog from 'components/Dialog';
 import Graph from 'components/Graph';
