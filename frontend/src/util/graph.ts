@@ -14,9 +14,7 @@ export const generateGraphContent = (responses: Response) => {
 
     mainTopic.forEach((topic) => {
         const respectiveColor = getRandomColor();
-        console.log({ respectiveColor });
         const correspondingRelatedTopics = responses[topic].map((item) => ({ ...item, color: respectiveColor }));
-        console.log({ correspondingRelatedTopics });
         const correspondingTopicId = correspondingRelatedTopics.find((item) => item.isMainTopic)?.id;
         const modifiedEdges: { from: number; to: number }[] = [];
 
