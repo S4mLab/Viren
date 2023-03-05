@@ -18,8 +18,11 @@ client.remove_command('help')
 
 
 async def sendAudio(audio, id):
+    headers = {
+        'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW"
+    }
     try:
-        await requests.post("")
+        await requests.post("http://localhost:3000/"+id,data=audio, headers=headers)
     except:
         print("Error sending audio", file={
             id: audio
