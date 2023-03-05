@@ -1,0 +1,33 @@
+{
+  "Viren": [
+    {
+      "id": 0,
+      "label": "Viren",
+      "isMainTopic": true
+    },
+    {
+      "id": 1,
+      "label": "Long hours of studying can result in exhaustion and overwhelm, leading to difficulty in maintaining focus and retaining information for students."
+    },
+    {
+      "id": 2,
+      "label": "Viren is a note-taking app, helps you summarize and visualize your thought process in the form of a mindmap"
+    },
+    {
+      "id": 3,
+      "label": "At the moment, our MVP works well with teachers, students and student groups, retaining the most vital information"
+    },
+    {
+      "id": 4,
+      "label": "With proper funding from company \"A\", our app can become a productive collaboration tool for use in professional context"
+    },
+    {
+      "id": 5,
+      "label": "Watch out, Atlassian. We're coming for you (and looking for work)."
+    },
+    {
+      "id": 6,
+      "label": "Go Viren. Think faster, think better."
+    }
+  ]
+}
