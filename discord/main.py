@@ -3,7 +3,7 @@ from discord.ext import commands
 from discord.ext.audiorec import NativeVoiceClient  # important!
 import random
 import requests
-import string
+
 
 import os
 from dotenv import load_dotenv
@@ -18,8 +18,11 @@ client.remove_command('help')
 
 
 async def sendAudio(audio, id):
+    headers = {
+        'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW"
+    }
     try:
-        await requests.post("")
+        await requests.post("http://localhost:3000/"+id,data=audio, headers=headers)
     except:
         print("Error sending audio", file={
             id: audio
@@ -96,5 +99,4 @@ async def ensure_voice(ctx):
         ctx.voice_client.stop()
 
 
-client.run(
-    "MTA4MTMyNDQ4MDE3NTAxODA3NQ.GWfrTe.qt0DCu8kq5NpIHIpg-JVe9-pkMR1PF6wPIVvPo")
+client.run("MTA4MTMyNDQ4MDE3NTAxODA3NQ.G90PbH.KIDcbMdu97Ymc0onVJ2BoI_nxvrHYkkUJ_oGes")
