@@ -1,0 +1,43 @@
+{
+  "entertainment": [
+    {"id": 0, "label": "Entertainment", "isMainTopic": true},
+    {"id": 1, "label": "The rise of streaming platforms: Netflix, Hulu, Amazon Prime, Disney+, etc."},
+    {"id": 2, "label": "The impact of social media on the entertainment industry"},
+    {"id": 3, "label": "The history and evolution of cinema and film-making"},
+    {"id": 4, "label": "Music genres and their cultural significance"},
+    {"id": 5, "label": "The influence of Hollywood on global entertainment"}
+  ],
+  "sports": [
+    {"id": 6, "label": "Sports", "isMainTopic": true},
+    {"id": 7, "label": "The impact of sports on culture and society"},
+    {"id": 8, "label": "The role of technology in modern sports"},
+    {"id": 9, "label": "The business of sports: Sponsorship, advertising, and revenue"},
+    {"id": 10, "label": "The future of sports: Emerging trends and innovations"},
+    {"id": 11, "label": "Sports psychology: The mental aspect of athletic performance"}
+  ],
+  "business": [
+    {"id": 12, "label": "Business", "isMainTopic": true},
+    {"id": 13, "label": "The changing face of entrepreneurship in the digital age"},
+    {"id": 14, "label": "Corporate social responsibility: How businesses are giving back to society"},
+    {"id": 15, "label": "Globalization and its impact on the world economy"},
+    {"id": 16, "label": "The rise of remote work and its impact on business culture"},
+    {"id": 17, "label": "The future of work: Automation, AI, and the gig economy"}
+  ],
+  "insurance": [
+    {"id": 18, "label": "Insurance", "isMainTopic": true},
+    {"id": 19, "label": "The role of insurance in mitigating risk and protecting assets"},
+    {"id": 20, "label": "The future of insurance: Trends and innovations"},
+    {"id": 21, "label": "The impact of climate change on insurance industry"},
+    {"id": 22, "label": "Insurance fraud and how to prevent it"},
+    {"id": 23, "label": "The role of insurtech in transforming the insurance industry"}
+  ],
+  "finance": [
+    {"id": 24, "label": "Finance", "isMainTopic": true},
+    {"id": 25, "label": "Personal finance and budgeting: Tips for managing money"},
+    {"id": 26, "label": "The stock market: How it works and what drives it"},
+    {"id": 27, "label": "Cryptocurrencies: The rise of Bitcoin and other digital currencies"},
+    {"id": 28, "label": "The impact of interest rates on the economy and personal finances"},
+    {"id": 29, "label": "The future of finance: Emerging trends and innovations"}
+  ]
+}
+
