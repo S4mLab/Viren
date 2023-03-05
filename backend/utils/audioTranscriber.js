@@ -8,9 +8,9 @@ const speech = require('@google-cloud/speech');
 const client = new speech.SpeechClient();
 
 async function googgleTextToSpeechWrapper(data) {
- 
+  // The audio file's encoding, sample rate in hertz, and BCP-47 language code
   const audio = {
-    "content": data,
+    uri: gcsUri,
   };
   const config = {
     encoding: 'LINEAR16',
@@ -21,20 +21,15 @@ async function googgleTextToSpeechWrapper(data) {
     audio: audio,
     config: config,
   };
-
   // Detects speech in the audio file
-  const [response] = await client.recognize(request);
-  const transcription = response.results
-    .map(result => result.alternatives[0].transcript)
-    .join('\n');
-  logger.info(`Transcription: ${transcription}`);
+  const response = await client.recognize(request);
+  const transcription = response[0].results[0].alternatives[0].transcript;
   return transcription;
 }
 
 const transcribeAudio = async (data) => {
-  var result = "";
   logger.info(`Audio file received. Defering to Google API's transcription service...`);
-  result = await googgleTextToSpeechWrapper(data);
+  const result = await googgleTextToSpeechWrapper(data);
   return result;
 };
 
